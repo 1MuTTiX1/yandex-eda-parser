@@ -10,11 +10,13 @@ fireFoxOptions = webdriver.FirefoxOptions()
 fireFoxOptions.add_argument("--window-size=1920,1080")
 fireFoxOptions.add_argument('--start-maximized')
 fireFoxOptions.add_argument('--disable-gpu')
-#fireFoxOptions.add_argument("--headless")
+fireFoxOptions.add_argument("--headless")
 
 driver = webdriver.Firefox(options=fireFoxOptions)
 url = 'https://eats.yandex.com/ru-am/Yerevan?shippingType=delivery'
 try:
+
+#Функция принимает адреса в качестве аргумента и выдаёт список Url адресов всех ресторанов в txt для дальнейшей обработки    
     def colector_url(address):
         driver.maximize_window()
         driver.get(url=url)
@@ -36,7 +38,7 @@ try:
         ok = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div/div/div[1]/div[2]/button')
         ActionChains(driver).click(ok).perform()
 
-#Блок скролла страницы если есть вариант более производительней пишите
+#Блок скролла страницы если есть вариант более производительней пишите(если знаете как сделать скрол через selenium и более оптимизированно, жду откликов)
         a = 0
         while True:
             driver.find_element(By.CSS_SELECTOR, 'body').send_keys(Keys.CONTROL + Keys.END)
@@ -59,7 +61,7 @@ try:
             ur = f'https://eats.yandex.com{i.find('a').get('href')}'
             url_list.append(ur)
 
-#Запись URL
+#Запись URL(Если наете как более красово сделать запись со спец знаками и более оптимизировано жду отзывов)
         with open(f'{address.replace(',','').replace('/','_')}.txt','w',encoding="utf-8") as f:
             for urls in url_list:
                 f.write(f'{urls}\n')
