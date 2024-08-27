@@ -35,7 +35,7 @@ try:
         ok = driver.find_element(By.XPATH, '/html/body/div[3]/div/div/div/div/div[1]/div[2]/button')
         ActionChains(driver).click(ok).perform()
         time.sleep(3)
-        click_time = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div[1]/main/div/div/main/div[4]/div/div')
+        click_time = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div[1]/main/div/div/main/div[3]/div/div/div')
         ActionChains(driver).click(click_time).perform()
         time.sleep(1)
         click_day = driver.find_element(By.XPATH,'/html/body/div[3]/div/div/div/div/div/div[1]/button[2]')
