@@ -146,7 +146,7 @@ class YandexEdaScraper:
             try:
                 # Ждём роста числа карточек вместо фиксированных sleep().
                 WebDriverWait(self.driver, self.config.scroll_pause + 1).until(
-                    lambda d: count_place_cards(d.page_source) > previous
+                    lambda d, prev=previous: count_place_cards(d.page_source) > prev
                 )
             except TimeoutException:
                 break

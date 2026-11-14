@@ -18,8 +18,14 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     src = p.add_mutually_exclusive_group(required=True)
     src.add_argument("-a", "--address", action="append", help="адрес (можно указать несколько раз)")
-    src.add_argument("-f", "--addresses-file", type=Path, help="файл со списком адресов, по одному на строку")
-    p.add_argument("-o", "--output-dir", type=Path, default=Path("output"), help="куда сохранять результаты")
+    src.add_argument(
+        "-f", "--addresses-file", type=Path,
+        help="файл со списком адресов, по одному на строку",
+    )
+    p.add_argument(
+        "-o", "--output-dir", type=Path, default=Path("output"),
+        help="куда сохранять результаты",
+    )
     p.add_argument("--city-url", help="URL города на eats.yandex.com")
     p.add_argument("--hour", type=int, default=15, help="час доставки на завтра (по умолчанию 15)")
     p.add_argument("--timeout", type=float, default=15.0, help="таймаут ожидания элементов, сек")

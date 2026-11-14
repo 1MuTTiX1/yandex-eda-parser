@@ -5,12 +5,14 @@ from eda_parser.parsing import (
     unique_preserve_order,
 )
 
-HTML = """
+CARD = "PlaceListBduItem_placesListItem PlaceListBduItem_lg"
+
+HTML = f"""
 <html><body>
-  <div class="PlaceListBduItem_placesListItem PlaceListBduItem_lg"><a href="/ru-am/r/cafe_one">One</a></div>
-  <div class="PlaceListBduItem_placesListItem PlaceListBduItem_lg"><a href="/ru-am/r/cafe_two">Two</a></div>
-  <div class="PlaceListBduItem_placesListItem PlaceListBduItem_lg"><a href="/ru-am/r/cafe_one">Dup</a></div>
-  <div class="PlaceListBduItem_placesListItem PlaceListBduItem_lg"><span>без ссылки</span></div>
+  <div class="{CARD}"><a href="/ru-am/r/cafe_one">One</a></div>
+  <div class="{CARD}"><a href="/ru-am/r/cafe_two">Two</a></div>
+  <div class="{CARD}"><a href="/ru-am/r/cafe_one">Dup</a></div>
+  <div class="{CARD}"><span>без ссылки</span></div>
   <div class="Other_item"><a href="/ru-am/r/not_a_place">x</a></div>
 </body></html>
 """
